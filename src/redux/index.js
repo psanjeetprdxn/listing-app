@@ -1,1 +1,1 @@
-export { fetchCharactersData } from "./characters/charactersAction";
+export { fetchCharactersData, changeActivePage } from "./characters/charactersAction";

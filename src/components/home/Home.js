@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function Home() {
-  return (
-    <div>
-      Characters
-    </div>
-  )
+  const homeTitleStyling = {
+    "font-size": "26px",
+    color: "black",
+    "font-weight": "bold",
+    "padding": '20px',
+  };
+  return <div style={homeTitleStyling}>Click on Characters link to Go on Listing page</div>;
 }

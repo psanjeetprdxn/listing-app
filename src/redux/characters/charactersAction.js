@@ -3,6 +3,7 @@ import {
   FETCH_CHARACTERS_REQUEST,
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_FAILURE,
+  CHANGE_ACTIVE_PAGE
 } from "./charactersTypes";
 
 export const fetchCharacterRequest = () => {
@@ -25,6 +26,13 @@ export const fetchCharactersFailure = (error) => {
   };
 };
 
+export const changeActivePage = (data) => {
+  return {
+    type: CHANGE_ACTIVE_PAGE,
+    payload: data,
+  }
+}
+
 export const fetchCharactersData = (page, size = 20) => {
   return (dispatch) => {
     dispatch(fetchCharacterRequest());
@@ -33,8 +41,6 @@ export const fetchCharactersData = (page, size = 20) => {
         `https://www.anapioficeandfire.com/api/characters?page=${page}&pageSize=${size}`
       )
       .then((response) => {
-        // const users = response.data
-        console.log(response);
         dispatch(fetchCharactersSuccess(response));
       })
       .catch((error) => {

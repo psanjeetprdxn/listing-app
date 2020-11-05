@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import loader from "../../assets/images/loader.svg";
 import ReactPaginate from "react-paginate";
-import { fetchCharactersData } from "../../redux";
+import { fetchCharactersData, changeActivePage } from "../../redux";
 import female from "../../assets/images/female.png";
 import male from "../../assets/images/male.png";
 import "./characters.css";
@@ -24,8 +24,8 @@ export class Characters extends Component {
   }
 
   handlePageClick(data) {
-    console.log(data);
     this.props.fetchCharactersData(data.selected + 1);
+    this.props.changeActivePage(data.selected + 1);
     this.setState({ activePage: data.selected + 1 });
   }
 
@@ -33,7 +33,8 @@ export class Characters extends Component {
     let characters;
     if (
       this.props.charactersData.loading === false ||
-      this.props.charactersData.loading != null
+      this.props.charactersData.loading != null ||
+      this.props.charactersData.error === null
     ) {
       characters = this.props.charactersData.data.map((item, index) => {
         if (item.name) {
@@ -90,6 +91,7 @@ export class Characters extends Component {
               containerClassName={"pagination"}
               subContainerClassName={"pages pagination"}
               activeClassName={"active"}
+              forcePage={this.props.charactersData.activePage - 1}
             />
           ) : null}
         </div>
@@ -105,6 +107,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCharactersData: (page) => dispatch(fetchCharactersData(page)),
+    changeActivePage: (page) => dispatch(changeActivePage(page)),
   };
 };
 
