@@ -1,0 +1,40 @@
+header {
+  background: #333945;
+}
+
+header .wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+nav {
+  flex-basis: 20%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color .3s linear;
+}
+
+nav a:hover,
+nav a.active {
+  color: #DAE0E2;
+}
