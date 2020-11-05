@@ -73,7 +73,7 @@ export class Characters extends Component {
           ) : (
             <div className="characters">{characters}</div>
           )}
-          {this.props.charactersData.data.length !== 0  ? (
+          {this.props.charactersData.data.length !== 0 ? (
             <ReactPaginate
               previousLabel={"<<"}
               nextLabel={">>"}

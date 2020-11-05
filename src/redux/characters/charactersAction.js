@@ -3,7 +3,7 @@ import {
   FETCH_CHARACTERS_REQUEST,
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_FAILURE,
-  CHANGE_ACTIVE_PAGE
+  CHANGE_ACTIVE_PAGE,
 } from "./charactersTypes";
 
 export const fetchCharacterRequest = () => {
@@ -30,8 +30,8 @@ export const changeActivePage = (data) => {
   return {
     type: CHANGE_ACTIVE_PAGE,
     payload: data,
-  }
-}
+  };
+};
 
 export const fetchCharactersData = (page, size = 20) => {
   return (dispatch) => {
