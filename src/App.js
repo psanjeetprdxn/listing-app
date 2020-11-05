@@ -5,9 +5,11 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import loader from './assets/images/loader.svg';
 import Header from "./components/header/Header";
-import Home from "./components/home/Home";
-import Characters from "./components/characters/Characters";
+const Home = React.lazy(() => import('./components/home/Home'));
+const Characters = React.lazy(() => import('./components/characters/Characters'));
+
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
         <div className="App">
           <Header />
           <div className="main">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<img src={loader} alt="Loading..." />}>
               <Switch>
                 <Route path="/listing">
                   <Characters />

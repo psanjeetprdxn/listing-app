@@ -2,17 +2,14 @@ import {
   FETCH_CHARACTERS_REQUEST,
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_FAILURE,
-  CHANGE_ACTIVE_PAGE
+  CHANGE_ACTIVE_PAGE,
 } from "./charactersTypes";
 
 const initialState = {
   loading: null,
   data: [],
   error: "",
-  itemsCountPerPage: 20,
   totalItemsCount: 0,
-  pageRangeDisplayed: 5,
-  pageNumber: 1,
   activePage: 1,
 };
 
@@ -51,7 +48,7 @@ const reducer = (state = initialState, action) => {
         data: [],
         error: action.payload,
       };
-      
+
     case CHANGE_ACTIVE_PAGE:
       return {
         ...state,

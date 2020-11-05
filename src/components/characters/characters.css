@@ -3,8 +3,6 @@
   margin: 0 auto;
 }
 
-.characters-listing { padding-bottom: 50px; }
-
 .pagination {
   width: 50%;
   margin: 0 auto;
@@ -19,6 +17,7 @@
   transition: .3s color;
 }
 
+.characters-listing { padding-bottom: 50px; }
 .pagination li a:hover { color: #E74292; }
 .disabled { display: none; }
 .active { color: #E74292; }

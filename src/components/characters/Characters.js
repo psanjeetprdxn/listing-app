@@ -10,23 +10,18 @@ import "./characters.css";
 export class Characters extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activePage: 1,
-    };
-
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount() {
     if (this.props.charactersData.data.length < 1) {
-      this.props.fetchCharactersData(this.state.activePage);
+      this.props.fetchCharactersData(this.props.charactersData.activePage);
     }
   }
 
   handlePageClick(data) {
     this.props.fetchCharactersData(data.selected + 1);
     this.props.changeActivePage(data.selected + 1);
-    this.setState({ activePage: data.selected + 1 });
   }
 
   render() {
