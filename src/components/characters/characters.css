@@ -1,0 +1,42 @@
+.characters-listing .wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.characters-listing { padding-bottom: 50px; }
+
+.pagination {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.pagination li a {
+  outline: none;
+  transition: .3s color;
+}
+
+.pagination li a:hover { color: #E74292; }
+.disabled { display: none; }
+.active { color: #E74292; }
+.bold { font-weight: bold; }
+
+.character {
+  padding: 20px 2%;
+  background: #7B8788;
+  color: white;
+  text-align: left;
+}
+
+.character-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.loader {
+  width: 400px;
+  height: 400px;
+}

@@ -9,8 +9,9 @@ const initialState = {
   data: [],
   error: "",
   itemsCountPerPage: 20,
-  totalItemsCount: null,
+  totalItemsCount: 0,
   pageRangeDisplayed: 5,
+  pageNumber: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,13 +28,18 @@ const reducer = (state = initialState, action) => {
         loading: false,
         data: action.payload.data,
         error: "",
-        totalItemsCount:
-          action.payload.headers.link
-            .split(", ")[2]
-            .substring(
-              action.payload.headers.link.split(", ")[2].indexOf("page=") + 5,
-              action.payload.headers.link.split(", ")[2].indexOf("&")
-            ) * 20,
+        totalItemsCount: action.payload.headers.link
+          .split(", ")
+          [action.payload.headers.link.split(", ").length - 1].substring(
+            action.payload.headers.link
+              .split(", ")
+              [action.payload.headers.link.split(", ").length - 1].indexOf(
+                "page="
+              ) + 5,
+            action.payload.headers.link
+              .split(", ")
+              [action.payload.headers.link.split(", ").length - 1].indexOf("&")
+          ),
       };
 
     case FETCH_CHARACTERS_FAILURE:
