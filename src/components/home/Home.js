@@ -7,5 +7,5 @@ export default function Home() {
     "font-weight": "bold",
     "padding": '20px',
   };
-  return <div style={homeTitleStyling}>Click on Characters link to Go on Listing page</div>;
+  return <div style={homeTitleStyling}>Click on Characters link to visit Listing page</div>;
 }
